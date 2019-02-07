@@ -16,6 +16,9 @@ public class Main {
 
     public static void addItems() {
 
+
+
+
         ArrayList<String> riceSelection = new ArrayList<String>();
 
         riceSelection.add("white rice");
@@ -39,9 +42,9 @@ public class Main {
 
         ArrayList<String> salsaSelection = new ArrayList<String>();
 
-        salsaSelection.add("mild");
-        salsaSelection.add("medium");
-        salsaSelection.add("hot");
+        salsaSelection.add("mild salsa");
+        salsaSelection.add("medium salsa");
+        salsaSelection.add("hot salsa");
         salsaSelection.add("no salsa");
         salsaSelection.add("all salsa");
 
@@ -77,6 +80,9 @@ public class Main {
         for (int i =1;i<=25;i++)  //loop 25 times
 
         {
+
+            double totalPrice=3;
+
             Collections.shuffle(riceSelection);
             Collections.shuffle(meatSelection);
             Collections.shuffle(beanSelection);
@@ -89,67 +95,117 @@ public class Main {
 
 
             String riceItem = riceSelection.get(0);
+
+            if (riceItem=="no rice") {
+                totalPrice += 0;
+            }
+
+            else
+                {
+                    totalPrice+=0.5;
+                }
+
             String meatItem = meatSelection.get(0);
+            totalPrice+=0.5;
+
             String beanItem = beanSelection.get(0);
+
+            if (beanItem=="no beans") {
+                totalPrice += 0;
+            }
+
+            else
+            {
+                totalPrice+=0.5;
+            }
+
             String salsaItem = salsaSelection.get(0);
 
-            switch (salsaItem) {
+           if (salsaItem=="all salsa") {
+               salsaItem = "mild salsa, medium salsa, hot salsa";
+               totalPrice += 1.5;
+           }
+                    else {
+                        salsaItem = "no salsa";
 
-                case "all salsa":
-                    salsaItem = "mild salsa, medium salsa, hot salsa";
-                    break;
 
-                case "no salsa":
-                    salsaItem = "no salsa";
-                    break;
+                    totalPrice+=0;
             }
+
             String veggiesItem = veggiesSelection.get(0);
 
-            switch (veggiesItem) {
+           if (veggiesItem=="all veggies") {
+               veggiesItem = "veggies, fajitas veggies, lettuce";
+               totalPrice += 1.5;
+           }
 
-                case "all veggies":
-                    veggiesItem = "veggies, fajitas veggies, lettuce";
-                    break;
-
-                case "no veggies":
+                else {
                     veggiesItem ="no veggies";
-                    break;
+                    totalPrice+=0;
+
             }
+
             String cheeseAdd = cheeseSelection.get(0);
 
-            if (cheeseAdd == "add cheese") {
+            if (cheeseAdd == "add cheese")
+            {
                 cheeseAdd = "add cheese";
-            } else {
-                cheeseAdd ="no cheese";
+                totalPrice+=0.5;
             }
+            else
+                {
+               cheeseAdd ="no cheese";
+                totalPrice+=0;
+                }
 
             String guacAdd = guacSelection.get(0);
 
-            if (guacAdd == "add guac") {
+            if (guacAdd == "add guac")
+            {
                 guacAdd = "add guac";
-            } else {
-                guacAdd = "no guac";
+                totalPrice+=0.5;
             }
+            else
+                {
+                guacAdd = "no guac";
+                    totalPrice+=0;
+                }
 
             String quesoAdd = quesoSelection.get(0);
 
-            if (quesoAdd == "add queso") {
+            if (quesoAdd == "add queso")
+            {
                 quesoAdd = "add queso";
-            } else {
+                totalPrice+=0.5;
+            }
+            else
+                {
                 quesoAdd = "no queso";
-            }
+                    totalPrice+=0;
+                }
+
             String sourCreamAdd = sourCreamSelection.get(0);
-            if (sourCreamAdd == "add sourcream ") {
+
+            if (sourCreamAdd == "add sourcream")
+            {
                 sourCreamAdd = "add sourcream";
-            } else {
-                sourCreamAdd = "no sourcream";
+                totalPrice+=0.5;
             }
 
+            else
+                {
+                sourCreamAdd = "no sourcream";
+                    totalPrice+=0;
+                }
 
 
+            System.out.println("Burrito "+i+" : "+riceItem+" , "+meatItem+" , "+beanItem+" , "+salsaItem+" , "+veggiesItem+" , "+cheeseAdd+" , "+guacAdd+" , "+quesoAdd+" , "+sourCreamAdd+" ------- $"+totalPrice);
 
-            System.out.println("Burrito "+i+" : "+riceItem+" , "+meatItem+" , "+beanItem+" , "+salsaItem+" , "+veggiesItem+" , "+cheeseAdd+" , "+guacAdd+" , "+quesoAdd+" , "+sourCreamAdd);
         }
+
+
+
+
 
 
 
