@@ -20,7 +20,7 @@ If you finish the project before 3pm then display a price for each burrito. Pric
 
  
 
-Sample Output (Your actual output may vary):
+<b>Sample Output (Your actual output may vary):</b>
 
 Burrito 1: brown rice, sofritas, black beans, no salsa, fajita veggies
 
